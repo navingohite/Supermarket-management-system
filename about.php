@@ -7,12 +7,12 @@ require_once"dbconfig.php";
 
 <head>
 
-  <meta charset="utf-8"
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Super Market | About</title>
+  <title>Supermarket Management System | About</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,9 +49,7 @@ require_once"dbconfig.php";
 			<li class="nav-item">
             <a class="nav-link" href="about.php">About</a>
           </li>
-         <li class="nav-item ">
-            <a class="nav-link" href="cart.php">My Cart</a>
-          </li>
+
 		   <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
           </li>

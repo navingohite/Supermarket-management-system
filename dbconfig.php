@@ -1,10 +1,10 @@
 <?php
 
 session_start();
-define("server","localhost",true);
-	define("user","root",true);
-	define("password","",true);
-	define("database","smms",true);
+define("server","localhost");
+	define("user","root");
+	define("password","");
+	define("database","smms_new");
 	$cid=mysqli_connect(server,user,password,database) or die("connection error");
 
 	function iud($query)

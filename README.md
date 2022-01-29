@@ -1,2 +1,21 @@
-# Supermarket-management-system
-This project is made for academic purpose. PLEASE DO NOT USE FOR ANY BUSINESS!
+#Supermarket  Management System
+
+A simple PHP web system for managing an Supermarket.  
+  
+
+## Installation
+* Clone the repository and move the root folder to the deployment folder of your browser. (for Apache, this is htdocs)
+* Create a blank DB called *smms* in MySQL
+* Load the sql dump to the newly created _smms_ database
+* Change the root url of your website in [constants.php](inc/config/constants.php) file
+
+## Requirements
+* PHP
+* MySQL
+* Apache
+* Google Chrome web browser (JavaScript enabled)
+* Internet connection with a reasonable speed
+
+## Usage
+* Access the login.php file from via browser and give _admin_ as username and _admin_ as password
+

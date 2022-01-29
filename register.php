@@ -1,5 +1,7 @@
 <?php
-require_once "dbconfig.php";
+require_once('admin/inc/config/constants.php');
+require_once('admin/inc/config/db.php');
+// require_once "dbconfig.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +28,7 @@ require_once "dbconfig.php";
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.php">Super Marker Management System</a>
+      <a class="navbar-brand" href="index.php">Supermarket Management System</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,7 +79,7 @@ require_once "dbconfig.php";
         <?php
         if (isset($_REQUEST['submit'])) {
           extract($_REQUEST);
-          $at = "INSERT into CUSTOMER(fullname,username,email,contact,address,password) VALUES('$fullname','$username',' $email ','$contact ','$address','$password')";
+          $at = "INSERT into CUSTOMER(fullname,email,mobile,address,password) VALUES('$fullname',' $email ','$mobile ','$address','$password')";
 
           $query = iud($at);
           if ($query == 1) {
@@ -96,17 +98,11 @@ require_once "dbconfig.php";
               <p class="help-block"></p>
             </div>
           </div>
-          <div class="control-group form-group">
-            <div class="controls">
-              <label>Username:</label>
-              <input type="text" class="form-control" name="username" id="name" required data-validation-required-message="Please enter your name.">
-              <p class="help-block"></p>
-            </div>
-          </div>
+
           <div class="control-group form-group">
             <div class="controls">
               <label>Phone Number:</label>
-              <input type="tel" class="form-control" id="phone" name="contact" required data-validation-required-message="Please enter your phone number.">
+              <input type="tel" class="form-control" id="phone" name="mobile" required data-validation-required-message="Please enter your phone number.">
             </div>
           </div>
           <div class="control-group form-group">

@@ -1,150 +1,141 @@
 <?php
-require_once"dbconfig.php";
+	
+	
 
+	
+	require_once('inc/config/constants.php');
+	require_once('inc/config/db.php');
+	require_once('inc/header.html');
+
+
+		// Check if user is already logged in
+		if(isset($_SESSION['loggedIn'])){
+			header('Location: index.php');
+			exit();
+		}
 ?>
+  <body>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Admin | Super Marker Management System</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/modern-business.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+<?php
+// Variable to store the action (login, register, passwordReset)
+$action = '';
+	if(isset($_GET['action'])){
+		$action = $_GET['action'];
+		if($action == 'register'){
+?>
+			<div class="container">
+			  <div class="row justify-content-center">
+			  <div class="col-sm-12 col-md-5 col-lg-5">
+				<div class="card">
+				  <div class="card-header">
+					Register
+				  </div>
+				  <div class="card-body">
+					<form action="">
+					<div id="registerMessage"></div>
+					  <div class="form-group">
+						<label for="registerFullName">Name<span class="requiredIcon">*</span></label>
+						<input type="text" class="form-control" id="registerFullName" name="registerFullName">
+						<!-- <small id="emailHelp" class="form-text text-muted"></small> -->
+					  </div>
+					   <div class="form-group">
+						<label for="registerUsername">Username<span class="requiredIcon">*</span></label>
+						<input type="email" class="form-control" id="registerUsername" name="registerUsername" autocomplete="on">
+					  </div>
+					  <div class="form-group">
+						<label for="registerPassword1">Password<span class="requiredIcon">*</span></label>
+						<input type="password" class="form-control" id="registerPassword1" name="registerPassword1">
+					  </div>
+					  <div class="form-group">
+						<label for="registerPassword2">Re-enter password<span class="requiredIcon">*</span></label>
+						<input type="password" class="form-control" id="registerPassword2" name="registerPassword2">
+					  </div>
+					  <a href="login.php" class="btn btn-primary">Login</a>
+					  <button type="button" id="register" class="btn btn-success">Register</button>
+					  <a href="login.php?action=resetPassword" class="btn btn-warning">Reset Password</a>
+					  <button type="reset" class="btn">Clear</button>
+					</form>
+				  </div>
+				</div>
+				</div>
+			  </div>
+			</div>
+<?php
+			require 'inc/footer.php';
+			echo '</body></html>';
+			exit();
+		} elseif($action == 'resetPassword'){
+?>
+			<div class="container">
+			  <div class="row justify-content-center">
+			  <div class="col-sm-12 col-md-5 col-lg-5">
+				<div class="card">
+				  <div class="card-header">
+					Reset Password
+				  </div>
+				  <div class="card-body">
+					<form action="">
+					<div id="resetPasswordMessage"></div>
+					  <div class="form-group">
+						<label for="resetPasswordUsername">Username</label>
+						<input type="text" class="form-control" id="resetPasswordUsername" name="resetPasswordUsername">
+					  </div>
+					  <div class="form-group">
+						<label for="resetPasswordPassword1">New Password</label>
+						<input type="password" class="form-control" id="resetPasswordPassword1" name="resetPasswordPassword1">
+					  </div>
+					  <div class="form-group">
+						<label for="resetPasswordPassword2">Confirm New Password</label>
+						<input type="password" class="form-control" id="resetPasswordPassword2" name="resetPasswordPassword2">
+					  </div>
+					  <a href="login.php" class="btn btn-primary">Login</a>
+					  <a href="login.php?action=register" class="btn btn-success">Register</a>
+					  <button type="button" id="resetPasswordButton" class="btn btn-warning">Reset Password</button>
+					  <button type="reset" class="btn">Clear</button>
+					</form>
+				  </div>
+				</div>
+				</div>
+			  </div>
+			</div>
+<?php
+			require 'inc/footer.php';
+			echo '</body></html>';
+			exit();
+		}
+	}	
+?>
+	<!-- Default Page Content (login form) -->
     <div class="container">
-      <a class="navbar-brand" href="index.php">Super Marker Management System</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-	
-			
-		  <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-	
-          
-        </ul>
+      <div class="row justify-content-center">
+	  <div class="col-sm-12 col-md-5 col-lg-5">
+		<div class="card">
+		  <div class="card-header">
+			Login
+		  </div>
+		  <div class="card-body">
+			<form action="">
+			<div id="loginMessage"></div>
+			  <div class="form-group">
+				<label for="loginUsername">Username</label>
+				<input type="text" class="form-control" id="loginUsername" name="loginUsername">
+			  </div>
+			  <div class="form-group">
+				<label for="loginPassword">Password</label>
+				<input type="password" class="form-control" id="loginPassword" name="loginPassword">
+			  </div>
+			  <button type="button" id="login" class="btn btn-primary">Login</button>
+			  <a href="login.php?action=register" class="btn btn-success">Register</a>
+			  <a href="login.php?action=resetPassword" class="btn btn-warning">Reset Password</a>
+			  <button type="reset" class="btn">Clear</button>
+			</form>
+		  </div>
+		</div>
+		</div>
       </div>
     </div>
-  </nav>
-</br>
-  <!-- Page Content -->
-  <div class="container">
-
-    
-
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item">
-        <a href="index.php">Home</a>
-      </li>
-      <li class="breadcrumb-item active">Sign In</li>
-    </ol>
-
-    <!-- Content Row -->
-    <div class="row">
-      <!-- Map Column -->
-      
-      <!-- Contact Details Column -->
-     
-    </div>
-    <!-- /.row -->
-
-    <!-- Contact Form -->
-    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-    <div class="row">
-	<div class="col-lg-4 "></div>
-      <div class="col-lg-4 ">
-        <h3>Only admin can login...</h3>
-
-        <form method="post">
-          
-          
-          <div class="control-group form-group">
-            <div class="controls">
-              <label>Email:</label>
-              <input type="text" class="form-control" name="email" required data-validation-required-message="Please enter your email address.">
-            </div>
-          </div>
-		  <div class="control-group form-group">
-            <div class="controls">
-              <label>Password:</label>
-              <input type="password" class="form-control" name="password" required data-validation-required-message="Please enter your password.">
-            </div>
-          </div>
-         
-          <div id="success"></div>
-          <!-- For success/fail messages -->
-          <button type="submit" class="btn btn-primary" name="submit">Sign In</button>
-        </form>
-        </form>
-				  <?php
-				  if(isset($_REQUEST['submit']))
-				  {
-					  extract($_REQUEST);
-					  $n=select("select * from admin where email='$email' and password='$password'");
-					  $t=mysqli_num_rows($n);
-					  if($t==1)
-					  {
-						  $_SESSION['adminlogin']='yes';
-						  echo"<script>window.location='index.php';</script>";
-					  }
-					  else
-					  {
-						  echo"<script>alert('Something Went Wrong');</script>";
-					  }
-				  }
-				  ?>
-      </div>
-
-    </div>
-	<br>
-    <!-- /.row -->
-
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Super Marker Management System</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-  <!-- Footer -->
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Contact form JavaScript -->
-  <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-</body>
-
+<?php
+	require 'inc/footer.php';
+?>
+  </body>
 </html>
