@@ -21,7 +21,7 @@
 		<div class="col-lg-2">
 		<h1 class="my-4"></h1>
 			<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-			  <a class="nav-link active" id="v-pills-item-tab" data-toggle="pill" href="#v-pills-item" role="tab" aria-controls="v-pills-item" aria-selected="true">Item</a>
+			  <a class="nav-link active" id="v-pills-item-tab" data-toggle="pill" href="#v-pills-item" role="tab" aria-controls="v-pills-item" aria-selected="true">Products</a>
 			  <a class="nav-link" id="v-pills-purchase-tab" data-toggle="pill" href="#v-pills-purchase" role="tab" aria-controls="v-pills-purchase" aria-selected="false">Purchase</a>
 			  <a class="nav-link" id="v-pills-vendor-tab" data-toggle="pill" href="#v-pills-vendor" role="tab" aria-controls="v-pills-vendor" aria-selected="false">Vendor</a>
 			  <a class="nav-link" id="v-pills-sale-tab" data-toggle="pill" href="#v-pills-sale" role="tab" aria-controls="v-pills-sale" aria-selected="false">Sale</a>
@@ -34,7 +34,7 @@
 			<div class="tab-content" id="v-pills-tabContent">
 			  <div class="tab-pane fade show active" id="v-pills-item" role="tabpanel" aria-labelledby="v-pills-item-tab">
 				<div class="card card-outline-secondary my-4">
-				  <div class="card-header">Item Details</div>
+				  <div class="card-header">Product Details</div>
 				  <div class="card-body">
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item">
@@ -158,7 +158,7 @@
 						</div>
 						<div class="form-group col-md-3">
 						  <label for="purchaseDetailsPurchaseDate">Purchase Date<span class="requiredIcon">*</span></label>
-						  <input type="text" class="form-control datepicker" id="purchaseDetailsPurchaseDate" name="purchaseDetailsPurchaseDate" readonly value="2018-05-24">
+						  <input type="text" class="form-control datepicker" id="purchaseDetailsPurchaseDate" name="purchaseDetailsPurchaseDate" readonly value="2022-01-10">
 						</div>
 						<div class="form-group col-md-2">
 						  <label for="purchaseDetailsPurchaseID">Purchase ID</label>
@@ -313,7 +313,7 @@
 						  </div>
 						  <div class="form-group col-md-3">
 							  <label for="saleDetailsSaleDate">Sale Date<span class="requiredIcon">*</span></label>
-							  <input type="text" class="form-control datepicker" id="saleDetailsSaleDate" value="2018-05-24" name="saleDetailsSaleDate" readonly>
+							  <input type="text" class="form-control datepicker" id="saleDetailsSaleDate" value="2022-01-10" name="saleDetailsSaleDate" readonly>
 						  </div>
 					  </div>
 					  <div class="form-row">
@@ -419,7 +419,7 @@
 			  
 			  <div class="tab-pane fade" id="v-pills-search" role="tabpanel" aria-labelledby="v-pills-search-tab">
 				<div class="card card-outline-secondary my-4">
-				  <div class="card-header">Search Produc<button id="searchTablesRefresh" name="searchTablesRefresh" class="btn btn-warning float-right btn-sm">Refresh</button></div>
+				  <div class="card-header">Search Product<button id="searchTablesRefresh" name="searchTablesRefresh" class="btn btn-warning float-right btn-sm">Refresh</button></div>
 				  <div class="card-body">										
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="nav-item">

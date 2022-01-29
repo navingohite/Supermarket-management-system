@@ -20,7 +20,7 @@
 				<span class="nav-link"> | </span>
             </li>
 			<li class="nav-item">
-				<a class="nav-link" href="model/login/logout.php">Log Out</a>
+				<a class="nav-link" href="model/login/logout.php">Logout</a>
             </li>
           </ul>
         </div>
