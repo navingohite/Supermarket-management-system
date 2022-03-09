@@ -79,7 +79,7 @@ require_once('admin/inc/config/db.php');
         <?php
         if (isset($_REQUEST['submit'])) {
           extract($_REQUEST);
-          $at = "INSERT into CUSTOMER(fullname,email,mobile,address,password) VALUES('$fullname',' $email ','$mobile ','$address','$password')";
+          $at = "INSERT into CUSTOMER(fullname,email,mobile,address,password) VALUES('$fullname','$email','$mobile ','$address','$password')";
 
           $query = iud($at);
           if ($query == 1) {

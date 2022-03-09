@@ -86,8 +86,7 @@ $password=$_POST['password'];
 
 
 // SQL query to fetch information of registerd users and finds user match.
-$res = select("SELECT email, password FROM CUSTOMER WHERE email='$email' AND password='$password' LIMIT 1");
-
+$res = select("SELECT * FROM customer WHERE `email`='$email' AND `password`='$password'");
 // To protect MySQL injection for Security purpose
 $r=mysqli_num_rows($res);
 if($r==1)
